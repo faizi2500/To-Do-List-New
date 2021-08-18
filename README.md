@@ -31,7 +31,13 @@ Additional description about the project and its features.
 
 To get a local copy up and running follow these simple example steps.
 
-`git clone https://github.com/faizi2500/To-Do-List.git`
+Clone the repo with `git clone https://github.com/faizi2500/To-Do-List-New.git`
+
+Run `npx hint .` to test for html linting check
+
+Run `npx stylelint "**/*.{css,scss}"` to test for css linting check
+
+The app is deployed using GitHub pages. You can view it using the 'live demo' above.
 
 ## Authors
 
