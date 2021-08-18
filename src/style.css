@@ -8,14 +8,13 @@ h1 {
   height: auto;
   border: 1px solid black;
   margin: 0 auto;
-
 }
 
 .heading-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-inline: 2.5% ;
+  margin-inline: 2.5%;
 }
 
 .container-heading {
@@ -31,6 +30,7 @@ h1 {
 .input-task {
   width: 95%;
 }
+
 .input-task::placeholder {
   font-style: italic;
 }

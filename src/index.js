@@ -1,7 +1,5 @@
 import './style.css';
 
-import './style.css';
-
 const form = document.getElementById('my-form');
 const allTasks = document.getElementById('all-tasks');
 const insert = document.getElementById('enter-task');
@@ -27,7 +25,7 @@ const taskList = [
 
 const displayTasks = () => {
   allTasks.innerHTML = '';
-  for (let i = 0; i < taskList.length; i++) {
+  for (let i = 0; i < taskList.length; i += 1) {
     const each = taskList[i];
     const list = `<div class="eachTask">
       <div class="group-list">
@@ -37,8 +35,6 @@ const displayTasks = () => {
       <button class="menu-icon" id="${each.id}"><i class="fas fa-ellipsis-v"></i></button>
     </div>
     <hr>`;
-
-
     allTasks.innerHTML += list;
   }
 };
