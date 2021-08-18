@@ -508,7 +508,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
     "start": "webpack serve --open",
+    "serve": "webpack serve",
     "build": "webpack"
   },
   "repository": {
@@ -522,5 +524,8 @@
     "url": "https://github.com/faizi2500/To-Do-List-New/issues"
   },
   "homepage": "https://github.com/faizi2500/To-Do-List-New#readme",
-  "description": ""
+  "description": "",
+  "resolutions": {
+    "glob-parent": "5.1.2"
+  }
 }
