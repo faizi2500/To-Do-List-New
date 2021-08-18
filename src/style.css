@@ -1,0 +1,82 @@
+h1 {
+  text-align: center;
+  margin-bottom: 6%;
+}
+
+.container {
+  width: 65%;
+  height: auto;
+  border: 1px solid black;
+  margin: 0 auto;
+
+}
+
+.heading-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 2.5% ;
+}
+
+.container-heading {
+  font-weight: 600;
+}
+
+.input-form {
+  display: flex;
+  justify-content: space-between;
+  margin-inline: 2.5%;
+}
+
+.input-task {
+  width: 95%;
+}
+.input-task::placeholder {
+  font-style: italic;
+}
+
+.fa-reply {
+  transform: scaleY(-1);
+  cursor: pointer;
+}
+
+.submit-task {
+  background-color: transparent;
+  border: transparent;
+}
+
+.fa-sync-alt {
+  cursor: pointer;
+}
+
+.clear-btn {
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#all-completed {
+  width: 100%;
+  height: 33px;
+  font-weight: 300;
+}
+
+.eachTask {
+  margin-inline: 2.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.group-list {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-icon {
+  background: transparent;
+  border: none;
+}
