@@ -13,7 +13,8 @@
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.20.1",
     "webpack": "^5.50.0",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "name": "to-do-list-new",
   "version": "1.0.0",
