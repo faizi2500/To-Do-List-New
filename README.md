@@ -24,7 +24,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link](https://faizi2500.github.io/To-Do-List/)
+[Live Demo Link](https://faizi2500.github.io/To-Do-List-New/)
 
 
 ## Getting Started
