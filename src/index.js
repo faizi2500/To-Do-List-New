@@ -55,9 +55,11 @@ const displayTasks = () => {
     input.setAttribute('class', 'check-box');
     input.id = each.id;
     input.checked = each.completed;
+    /* eslint-disable */
     input.addEventListener('change', () => {
       completedStatus(each, taskList);
     });
+    /* eslint-enable */
     list.appendChild(input);
 
     const label = document.createElement('label');
