@@ -1,12 +1,13 @@
 import './style.css';
 import completedStatus from './complete.js';
+// import { templateSettings } from 'lodash';
 
 const form = document.getElementById('my-form');
 const allTasks = document.getElementById('all-tasks');
 const insert = document.getElementById('enter-task');
 const addTask = document.getElementById('task');
 
-const taskList = [
+let taskList = [
   {
     description: 'Wash clothes',
     completed: false,
@@ -23,10 +24,37 @@ const taskList = [
     id: 2,
   },
 ];
+console.log(JSON.parse(localStorage.getItem('taskList')));
+
+// UpdateLocalStorage function 
+// const updateLocalStorage = () => {
+//   localStorage.setItem("taskList", JSON.stringify(taskList));
+//   // displayTasks(taskList);
+// }
+
+const getData = () => {
+  if (localStorage.getItem('taskList') !== null) {
+    taskList = JSON.parse(localStorage.getItem('tasklist'));
+  }
+}
 
 const displayTasks = () => {
+  const local = localStorage.getItem('taskList');
+  console.log(local);
+  if (localStorage.getItem('taskList') !== null) {
+    console.log('we are getting this from storage');
+    taskList = JSON.parse(localStorage.getItem('taskList'));
+    console.log(taskList);
+  } else {
+    console.log('we didnt get from local storage');
+    localStorage.setItem('taskList', JSON.stringify(taskList));
+  }
+  // localStorage.setItem("taskList", JSON.stringify(taskList));
+  // getData();
+  console.log(taskList);
   allTasks.innerHTML = '';
   for (let i = 0; i < taskList.length; i += 1) {
+
     const each = taskList[i];
 
     const eachTask = document.createElement('div');
@@ -38,12 +66,13 @@ const displayTasks = () => {
     const input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
     input.setAttribute('class', 'check-box');
-    input.id = each.id
-    input.addEventListener('change' , (e) => {
-      completedStatus(e.target, taskList[i])
-    })
+    input.id = each.id;
+    input.checked = each.completed;
+    input.addEventListener('change' , () => {
+      completedStatus(taskList[i], taskList);
+    });
     list.appendChild(input);
-
+    
     const label = document.createElement('label');
     label.innerHTML = `${each.description}`;
     label.className ='form-label';
@@ -56,21 +85,14 @@ const displayTasks = () => {
     button.className = 'menu-icon';
     eachTask.appendChild(button);
 
-
     const separatingLine = document.createElement("hr");
     eachTask.appendChild(separatingLine);
-
-
     allTasks.appendChild(eachTask);
-
   }
 };
 
-// Completed status function
-
-
 // Add tasks to the taskList array.
-const addTaskList = () => {
+const addTaskList = (taskList) => {
   const description = addTask.value;
   const completed = false;
   if (description === '') {
@@ -81,14 +103,16 @@ const addTaskList = () => {
     const task = { description, completed, id };
     taskList.push(task);
     addTask.style.border = 'thin solid black';
-    displayTasks();
+    // updateLocalStorage();
+    displayTasks(taskList);
   }
   form.reset();
 };
 
+
 insert.addEventListener('click', (e) => {
   e.preventDefault();
-  addTaskList();
+  addTaskList(taskList);
 });
 
 window.onload = displayTasks();

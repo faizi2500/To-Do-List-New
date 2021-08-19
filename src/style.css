@@ -80,3 +80,7 @@ h1 {
   background: transparent;
   border: none;
 }
+
+.check-box:checked + .form-label {
+  text-decoration: line-through;
+}
