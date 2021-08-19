@@ -29,21 +29,19 @@ const getData = () => {
   if (localStorage.getItem('taskList') !== null) {
     taskList = JSON.parse(localStorage.getItem('tasklist'));
   }
-}
+};
 
 const displayTasks = () => {
   const local = localStorage.getItem('taskList');
   if (local !== null) {
     taskList = JSON.parse(localStorage.getItem('taskList'));
   } else {
-    console.log('we didnt get from local storage');
     localStorage.setItem('taskList', JSON.stringify(taskList));
     getData();
   }
 
   allTasks.innerHTML = '';
   for (let i = 0; i < taskList.length; i += 1) {
-
     const each = taskList[i];
 
     const eachTask = document.createElement('div');
@@ -57,24 +55,24 @@ const displayTasks = () => {
     input.setAttribute('class', 'check-box');
     input.id = each.id;
     input.checked = each.completed;
-    input.addEventListener('change' , () => {
-      completedStatus(taskList[i], taskList);
+    input.addEventListener('change', () => {
+      completedStatus(each, taskList);
     });
     list.appendChild(input);
-    
+
     const label = document.createElement('label');
     label.innerHTML = `${each.description}`;
-    label.className ='form-label';
+    label.className = 'form-label';
     list.appendChild(label);
 
     eachTask.appendChild(list);
 
     const button = document.createElement('button');
-    button.innerHTML = `<i class="fas fa-ellipsis-v">`;
+    button.innerHTML = '<i class="fas fa-ellipsis-v">';
     button.className = 'menu-icon';
     eachTask.appendChild(button);
 
-    const separatingLine = document.createElement("hr");
+    const separatingLine = document.createElement('hr');
     eachTask.appendChild(separatingLine);
     allTasks.appendChild(eachTask);
   }
@@ -92,12 +90,11 @@ const addTaskList = (taskList) => {
     const task = { description, completed, id };
     taskList.push(task);
     addTask.style.border = 'thin solid black';
-    localStorage.setItem("taskList", JSON.stringify(taskList));
+    localStorage.setItem('taskList', JSON.stringify(taskList));
     displayTasks();
   }
   form.reset();
 };
-
 
 insert.addEventListener('click', (e) => {
   e.preventDefault();
