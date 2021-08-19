@@ -24,13 +24,6 @@ let taskList = [
     id: 2,
   },
 ];
-console.log(JSON.parse(localStorage.getItem('taskList')));
-
-// UpdateLocalStorage function 
-// const updateLocalStorage = () => {
-//   localStorage.setItem("taskList", JSON.stringify(taskList));
-//   // displayTasks(taskList);
-// }
 
 const getData = () => {
   if (localStorage.getItem('taskList') !== null) {
@@ -40,18 +33,14 @@ const getData = () => {
 
 const displayTasks = () => {
   const local = localStorage.getItem('taskList');
-  console.log(local);
-  if (localStorage.getItem('taskList') !== null) {
-    console.log('we are getting this from storage');
+  if (local !== null) {
     taskList = JSON.parse(localStorage.getItem('taskList'));
-    console.log(taskList);
   } else {
     console.log('we didnt get from local storage');
     localStorage.setItem('taskList', JSON.stringify(taskList));
+    getData();
   }
-  // localStorage.setItem("taskList", JSON.stringify(taskList));
-  // getData();
-  console.log(taskList);
+
   allTasks.innerHTML = '';
   for (let i = 0; i < taskList.length; i += 1) {
 
@@ -103,8 +92,8 @@ const addTaskList = (taskList) => {
     const task = { description, completed, id };
     taskList.push(task);
     addTask.style.border = 'thin solid black';
-    // updateLocalStorage();
-    displayTasks(taskList);
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+    displayTasks();
   }
   form.reset();
 };
