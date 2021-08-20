@@ -63,10 +63,15 @@ h1 {
 }
 
 .eachTask {
-  margin-inline: 2.5%;
+  padding: 1%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* padding-block: 1%; */
+}
+
+hr {
+  margin: 0;
 }
 
 .group-list {
@@ -83,4 +88,18 @@ h1 {
 
 .check-box:checked + .form-label {
   text-decoration: line-through;
+}
+
+.form-label {
+  caret-color: black;
+  border: none;
+}
+
+.form-label:focus { 
+  border: none;
+  outline: none; 
+}
+
+.fa-trash-alt {
+  color: rgb(231, 18, 18);
 }

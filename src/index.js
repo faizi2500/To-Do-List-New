@@ -47,17 +47,29 @@ const displayTasks = () => {
     /* eslint-enable */
     list.appendChild(input);
 
-    const label = document.createElement('label');
-    label.innerHTML = `${each.description}`;
-    label.className = 'form-label';
-    list.appendChild(label);
-
+    const inputLabel = document.createElement('input');
+    inputLabel.value = each.description;
+    inputLabel.setAttribute('type', 'text');
+    inputLabel.className = 'form-label';
+    inputLabel.contentEditable = true;
+    list.appendChild(inputLabel);
     eachTask.appendChild(list);
 
     const button = document.createElement('button');
     button.innerHTML = '<i class="fas fa-ellipsis-v">';
     button.className = 'menu-icon';
     eachTask.appendChild(button);
+    inputLabel.addEventListener('focus', () => {
+      inputLabel.style.background= '#feeaaa';
+      eachTask.style.background = '#feeaaa';
+      button.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+    });
+
+    inputLabel.addEventListener('blur', () => {
+      inputLabel.style.background= '#ffffff';
+      eachTask.style.background = '#ffffff';
+      button.innerHTML = `<i class="fas fa-ellipsis-v">`
+    });
 
     allTasks.appendChild(eachTask);
     const separatingLine = document.createElement('hr');
