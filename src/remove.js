@@ -1,13 +1,14 @@
-import displayTasks from './index.js'
+/* eslint-disable import/no-cycle */
 
+import displayTasks from './index.js';
 
-const removeTask = (each, taskList, index) => {
-  taskList.splice(each, 1);
-  for(let j = 0; j < taskList.length; j++) {
+const removeTask = (taskList, index) => {
+  taskList.splice(index, 1);
+  for (let j = 0; j < taskList.length; j += 1) {
     taskList[j].id = j + 1;
   }
   localStorage.setItem('taskList', JSON.stringify(taskList));
-  displayTasks()
+  displayTasks();
 };
 
 export default removeTask;
