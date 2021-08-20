@@ -1,6 +1,7 @@
 import './style.css';
 import completedStatus from './complete.js';
 import addTaskList from './add-to-list.js'
+import removeTask from './remove.js'
 // import { templateSettings } from 'lodash';
 
 const form = document.getElementById('my-form');
@@ -55,20 +56,34 @@ const displayTasks = () => {
     list.appendChild(inputLabel);
     eachTask.appendChild(list);
 
-    const button = document.createElement('button');
-    button.innerHTML = '<i class="fas fa-ellipsis-v">';
-    button.className = 'menu-icon';
+    const button = document.createElement('i');
+    button.classList.add('fas', 'fa-ellipsis-v');
     eachTask.appendChild(button);
+
+    const trash = document.createElement('div');
+    trash.innerHTML = `<i class="fas fa-trash-alt"></i>`
+    trash.setAttribute('class', 'bin');
+    eachTask.appendChild(trash);
+
     inputLabel.addEventListener('focus', () => {
       inputLabel.style.background= '#feeaaa';
       eachTask.style.background = '#feeaaa';
-      button.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+      button.style.display = 'none';
+      trash.style.display = 'inline';
     });
+
+
+    trash.addEventListener ('mousedown', (e) => {
+      e.preventDefault();
+      console.log('Remove Me');
+      removeTask(each, taskList, i);
+    })
 
     inputLabel.addEventListener('blur', () => {
       inputLabel.style.background= '#ffffff';
       eachTask.style.background = '#ffffff';
-      button.innerHTML = `<i class="fas fa-ellipsis-v">`
+      button.style.display = 'inline';
+      trash.style.display = 'none';
     });
 
     allTasks.appendChild(eachTask);

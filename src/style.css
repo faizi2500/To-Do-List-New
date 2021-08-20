@@ -100,6 +100,14 @@ hr {
   outline: none; 
 }
 
+.fa-ellipsis-v {
+  display: inline;
+}
+
 .fa-trash-alt {
   color: rgb(231, 18, 18);
+}
+
+.bin {
+  display: none;
 }

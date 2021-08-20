@@ -1,4 +1,4 @@
-import displayTasks from './index.js'
+import displayTasks from './index.js';
 
 const addTask = document.getElementById('task');
 const form = document.getElementById('my-form');
