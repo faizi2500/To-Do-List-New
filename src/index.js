@@ -1,11 +1,13 @@
 import './style.css';
+import completedStatus from './complete.js';
+// import { templateSettings } from 'lodash';
 
 const form = document.getElementById('my-form');
 const allTasks = document.getElementById('all-tasks');
 const insert = document.getElementById('enter-task');
 const addTask = document.getElementById('task');
 
-const taskList = [
+let taskList = [
   {
     description: 'Wash clothes',
     completed: false,
@@ -23,24 +25,63 @@ const taskList = [
   },
 ];
 
+const getData = () => {
+  if (localStorage.getItem('taskList') !== null) {
+    taskList = JSON.parse(localStorage.getItem('tasklist'));
+  }
+};
+
 const displayTasks = () => {
+  const local = localStorage.getItem('taskList');
+  if (local !== null) {
+    taskList = JSON.parse(localStorage.getItem('taskList'));
+  } else {
+    localStorage.setItem('taskList', JSON.stringify(taskList));
+    getData();
+  }
+
   allTasks.innerHTML = '';
   for (let i = 0; i < taskList.length; i += 1) {
     const each = taskList[i];
-    const list = `<div class="eachTask">
-      <div class="group-list">
-      <input type="checkbox" class="box" id="list-box" name="list-box">
-        <p class="task-name">${each.description}</p>
-      </div> 
-      <button class="menu-icon" id="${each.id}"><i class="fas fa-ellipsis-v"></i></button>
-    </div>
-    <hr>`;
-    allTasks.innerHTML += list;
+
+    const eachTask = document.createElement('div');
+    eachTask.className = 'eachTask';
+
+    const list = document.createElement('div');
+    list.className = 'group-list';
+
+    const input = document.createElement('input');
+    input.setAttribute('type', 'checkbox');
+    input.setAttribute('class', 'check-box');
+    input.id = each.id;
+    input.checked = each.completed;
+    /* eslint-disable */
+    input.addEventListener('change', () => {
+      completedStatus(each, taskList);
+    });
+    /* eslint-enable */
+    list.appendChild(input);
+
+    const label = document.createElement('label');
+    label.innerHTML = `${each.description}`;
+    label.className = 'form-label';
+    list.appendChild(label);
+
+    eachTask.appendChild(list);
+
+    const button = document.createElement('button');
+    button.innerHTML = '<i class="fas fa-ellipsis-v">';
+    button.className = 'menu-icon';
+    eachTask.appendChild(button);
+
+    const separatingLine = document.createElement('hr');
+    eachTask.appendChild(separatingLine);
+    allTasks.appendChild(eachTask);
   }
 };
 
 // Add tasks to the taskList array.
-const addTaskList = () => {
+const addTaskList = (taskList) => {
   const description = addTask.value;
   const completed = false;
   if (description === '') {
@@ -51,6 +92,7 @@ const addTaskList = () => {
     const task = { description, completed, id };
     taskList.push(task);
     addTask.style.border = 'thin solid black';
+    localStorage.setItem('taskList', JSON.stringify(taskList));
     displayTasks();
   }
   form.reset();
@@ -58,7 +100,7 @@ const addTaskList = () => {
 
 insert.addEventListener('click', (e) => {
   e.preventDefault();
-  addTaskList();
+  addTaskList(taskList);
 });
 
 window.onload = displayTasks();

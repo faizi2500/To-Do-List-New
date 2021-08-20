@@ -70,7 +70,7 @@ h1 {
 }
 
 .group-list {
-  width: 70%;
+  width: 99%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -79,4 +79,8 @@ h1 {
 .menu-icon {
   background: transparent;
   border: none;
+}
+
+.check-box:checked + .form-label {
+  text-decoration: line-through;
 }
