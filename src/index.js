@@ -1,5 +1,6 @@
 import './style.css';
 import completedStatus from './complete.js';
+import addTaskList from './add-to-list.js'
 // import { templateSettings } from 'lodash';
 
 const form = document.getElementById('my-form');
@@ -7,23 +8,7 @@ const allTasks = document.getElementById('all-tasks');
 const insert = document.getElementById('enter-task');
 const addTask = document.getElementById('task');
 
-let taskList = [
-  {
-    description: 'Wash clothes',
-    completed: false,
-    id: 0,
-  },
-  {
-    description: 'Spend Time With Family',
-    completed: false,
-    id: 1,
-  },
-  {
-    description: 'Read Books',
-    completed: false,
-    id: 2,
-  },
-];
+let taskList = [];
 
 const getData = () => {
   if (localStorage.getItem('taskList') !== null) {
@@ -74,33 +59,18 @@ const displayTasks = () => {
     button.className = 'menu-icon';
     eachTask.appendChild(button);
 
-    const separatingLine = document.createElement('hr');
-    eachTask.appendChild(separatingLine);
     allTasks.appendChild(eachTask);
+    const separatingLine = document.createElement('hr');
+    allTasks.appendChild(separatingLine);
   }
-};
-
-// Add tasks to the taskList array.
-const addTaskList = (taskList) => {
-  const description = addTask.value;
-  const completed = false;
-  if (description === '') {
-    addTask.setAttribute('required', '');
-    addTask.style.border = 'thin solid red';
-  } else {
-    const id = taskList.length;
-    const task = { description, completed, id };
-    taskList.push(task);
-    addTask.style.border = 'thin solid black';
-    localStorage.setItem('taskList', JSON.stringify(taskList));
-    displayTasks();
-  }
-  form.reset();
 };
 
 insert.addEventListener('click', (e) => {
   e.preventDefault();
   addTaskList(taskList);
+  displayTasks();
 });
+
+export default displayTasks;
 
 window.onload = displayTasks();
