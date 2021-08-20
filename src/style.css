@@ -67,7 +67,6 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding-block: 1%; */
 }
 
 hr {
@@ -86,18 +85,18 @@ hr {
   border: none;
 }
 
-.check-box:checked + .form-label {
-  text-decoration: line-through;
-}
-
 .form-label {
   caret-color: black;
   border: none;
 }
 
-.form-label:focus { 
+.form-label:focus {
   border: none;
-  outline: none; 
+  outline: none;
+}
+
+.check-box:checked + .form-label {
+  text-decoration: line-through;
 }
 
 .fa-ellipsis-v {
