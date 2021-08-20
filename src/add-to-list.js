@@ -1,3 +1,5 @@
+/* eslint-disable import/no-cycle */
+
 import displayTasks from './index.js';
 
 const addTask = document.getElementById('task');
@@ -10,7 +12,7 @@ const addTaskList = (taskList) => {
     addTask.setAttribute('required', '');
     addTask.style.border = 'thin solid red';
   } else {
-    const id = taskList.length;
+    const id = taskList.length + 1;
     const task = { description, completed, id };
     taskList.push(task);
     addTask.style.border = 'thin solid black';
@@ -20,4 +22,4 @@ const addTaskList = (taskList) => {
   form.reset();
 };
 
-export default addTaskList; 
+export default addTaskList;
