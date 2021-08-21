@@ -9,7 +9,7 @@
 
 ![screenshot](./src/Screenshot.png)
 
-Additional description about the project and its features.
+Additional description about the project and its features can be seen below.
 
 ## Built With
 
