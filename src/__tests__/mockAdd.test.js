@@ -32,7 +32,7 @@ describe('Add-Tasks', () => {
     expect(listTask[0].id).toBe(1);
   });
 
-  // it('add-Tasks', () => {
-  //   expect(listTask[0]).toEqual({ description: 'Feed the dog', completed: false, id: 1 });
-  // });
+  it('add-Tasks', () => {
+    expect(listTask[0]).toEqual({ description: 'Feed the dog', completed: false, id: 1 });
+  });
 });
