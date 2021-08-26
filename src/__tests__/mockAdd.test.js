@@ -5,7 +5,6 @@
 import localStorageMock from '../__mocks__/mockLocal.js';
 import addTasklist from '../__mocks__/mockAdd.js';
 
-
 describe('Add-Tasks', () => {
   const listTask = [];
   const item = 'Feed the dog';
@@ -34,7 +33,6 @@ describe('Add-Tasks', () => {
   });
 
   it('add-Tasks', () => {
-    expect(listTask[0]).toEqual({"description": "Feed the dog", "completed": false, "id": 1});
+    expect(listTask[0]).toEqual({ description: 'Feed the dog', completed: false, id: 1 });
   });
-
 });

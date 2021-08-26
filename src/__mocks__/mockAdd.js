@@ -1,15 +1,13 @@
-
-import localStorageMock from './mockLocal.js'
-
+import localStorageMock from './mockLocal.js';
 
 const addTaskList = (taskList, item) => {
   taskList.push({
     description: item,
     id: taskList.length + 1,
-    completed: false
+    completed: false,
   });
   localStorageMock.setItem('taskList', taskList);
-  return taskList; 
+  return taskList;
 };
 
 export default addTaskList;
