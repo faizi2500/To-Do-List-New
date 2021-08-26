@@ -4,9 +4,6 @@ const localStorageMock = {
   setItem: (key, value) => {
     listTask[key] = value;
   },
-
-  // removeItem: (key) => delete listTask[key],
-  // clear:  listTask = {},
 };
 
 export default localStorageMock;
