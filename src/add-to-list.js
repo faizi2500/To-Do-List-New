@@ -2,10 +2,8 @@
 
 import displayTasks from './index.js';
 
-const addTask = document.getElementById('task');
-const form = document.getElementById('my-form');
-
-const addTaskList = (taskList) => {
+const addTaskList = (taskList, form) => {
+  const addTask = form.getElementById('task');
   const description = addTask.value;
   const completed = false;
   if (description === '') {
@@ -16,8 +14,7 @@ const addTaskList = (taskList) => {
     const task = { description, completed, id };
     taskList.push(task);
     addTask.style.border = 'thin solid black';
-    localStorage.setItem('taskList', JSON.stringify(taskList));
-    displayTasks();
+    return taskList;
   }
   form.reset();
 };

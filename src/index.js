@@ -10,6 +10,7 @@ const allTasks = document.getElementById('all-tasks');
 const insert = document.getElementById('enter-task');
 const removeAll = document.getElementById('all-completed');
 
+
 let taskList = [];
 
 const getData = () => {
@@ -62,6 +63,7 @@ const displayTasks = () => {
       /* eslint-disable */
       trash.addEventListener('mousedown', () => {
         removeTask(taskList, i);
+        displayTasks();
       });
       /* eslint-enable */
       inputLabel.addEventListener('blur', () => {
@@ -96,7 +98,10 @@ insert.addEventListener('click', (e, taskList) => {
     taskList = JSON.parse(localStorage.getItem('taskList'));
   }
   e.preventDefault();
-  addTaskList(taskList);
+  const form = document.getElementById('my-form');
+  addTaskList(taskList, form);
+  localStorage.setItem('taskList', JSON.stringify(taskList));
+    displayTasks();
 });
 
 export default displayTasks;

@@ -8,7 +8,6 @@ const removeTask = (taskList, index) => {
     taskList[j].id = j + 1;
   }
   localStorage.setItem('taskList', JSON.stringify(taskList));
-  displayTasks();
 };
 
 export default removeTask;
