@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 
 import displayTasks from './index.js';
+import addToStorage from './addToLocalStorage.js'
 
 const addTask = document.getElementById('task');
 const form = document.getElementById('my-form');
@@ -16,7 +17,7 @@ const addTaskList = (taskList) => {
     const task = { description, completed, id };
     taskList.push(task);
     addTask.style.border = 'thin solid black';
-    localStorage.setItem('taskList', JSON.stringify(taskList));
+    addToStorage(taskList);
     displayTasks();
   }
   form.reset();
