@@ -24,19 +24,19 @@ describe('Delete One Task', () => {
     expect(removeTask(listTask, 1)).toHaveLength(2);
   });
 
-  it('Update local Storage after deleting', () => {
+  it('Update local Storage length after deleting', () => {
     expect(localStorageMock.getItem('taskList')).toHaveLength(2);
   });
 
-  it('Local storage should update after delete', () => {
+  it('Update local storage after deleting an item', () => {
     expect(localStorageMock.getItem('taskList')).toBe(listTask);
   });
 
-  it('Index should update after delete one item', () => {
+  it('Update index after deleting a task', () => {
     expect(listTask[1].id).toBe(2);
   });
 
-  it('should return updated array', () => {
+  it('Return updated array', () => {
     expect(removeTask(listTask, 0)).toEqual([{ completed: false, description: 'Read Book for 30 mins', id: 1 }]);
   });
 });
@@ -69,11 +69,11 @@ describe('Delete All Completed', () => {
     expect(removeCompleted(linkTask)).toHaveLength(2);
   });
 
-  it('Local storage should update after delete', () => {
+  it('Update local storage after deleting', () => {
     expect(localStorageMock.getItem('taskList')[1].description).toBe('Task 4');
   });
 
-  it('Local storage should update after delete', () => {
+  it('Update local storage after deleting', () => {
     expect(localStorageMock.getItem('taskList')[1].id).toBe(2);
   });
 

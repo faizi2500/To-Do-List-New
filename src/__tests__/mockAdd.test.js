@@ -12,19 +12,19 @@ describe('Add-Tasks', () => {
     expect(addTasklist(listTask, item)).toHaveLength(1);
   });
 
-  it('Local storage should update after add new item', () => {
+  it('Update local storage after new item', () => {
     expect(localStorageMock.getItem('taskList')).toHaveLength(1);
   });
 
-  it('Should return task array with attached todo object', () => {
+  it('Should return task array with task object, () => {
     expect(addTasklist(listTask, item)).toHaveLength(2);
   });
 
-  it('Description should have input value', () => {
+  it('Description should match input value - insert ', () => {
     expect(listTask[0].description).toBe('Feed the dog');
   });
 
-  it('Status should be false', () => {
+  it('Completed status should be false', () => {
     expect(listTask[0].completed).toBe(false);
   });
 
