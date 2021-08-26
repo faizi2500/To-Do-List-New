@@ -1,3 +1,3 @@
-const addToStorage = (taskList) => localStorage.setItem('taskList', JSON.stringify(taskList)) 
+const addToStorage = (taskList) => localStorage.setItem('taskList', JSON.stringify(taskList));
 
-export default addToStorage
+export default addToStorage;

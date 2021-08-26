@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 
 import displayTasks from './index.js';
-import addToStorage from './addToLocalStorage.js'
+import addToStorage from './addToLocalStorage.js';
 
 const addTask = document.getElementById('task');
 const form = document.getElementById('my-form');
