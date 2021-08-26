@@ -16,7 +16,7 @@ describe('Add-Tasks', () => {
     expect(localStorageMock.getItem('taskList')).toHaveLength(1);
   });
 
-  it('Should return task array with task object, () => {
+  it('Should return task array with task object', () => {
     expect(addTasklist(listTask, item)).toHaveLength(2);
   });
 
