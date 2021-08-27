@@ -2,7 +2,7 @@
 
 import displayTasks from './index.js';
 /* eslint-disable */
-import addToStorage from './addToLocalStorage.js';
+import addToStorage from './addTolocalStorage.js';
 /* eslint-enable */
 
 const addTask = document.getElementById('task');

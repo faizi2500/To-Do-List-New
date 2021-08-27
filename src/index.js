@@ -4,6 +4,7 @@ import './style.css';
 import completedStatus from './complete.js';
 import addTaskList from './add-to-list.js';
 import removeTask from './remove.js';
+import addToStorage from './addTolocalStorage.js'
 // import { templateSettings } from 'lodash';
 
 const allTasks = document.getElementById('all-tasks');
@@ -69,6 +70,8 @@ const displayTasks = () => {
         eachTask.style.background = '#ffffff';
         button.style.display = 'inline';
         trash.style.display = 'none';
+        each.description = inputLabel.value;
+        addToStorage(taskList)
       });
       allTasks.appendChild(eachTask);
       const separatingLine = document.createElement('hr');
